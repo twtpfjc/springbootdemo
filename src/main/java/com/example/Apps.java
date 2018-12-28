@@ -9,5 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Apps {
 	public static void main(String[] args) {
 		SpringApplication.run(Apps.class, args);
+		System.out.println(11111);
 	}
 }
