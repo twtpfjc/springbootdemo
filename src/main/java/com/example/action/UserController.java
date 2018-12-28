@@ -23,6 +23,7 @@ public class UserController {
 
 	@GetMapping("/")
 	public String a(Model model) {
+		System.out.println(11111);
 		return "index";
 	}
 
