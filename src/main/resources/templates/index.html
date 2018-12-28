@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/jquery-1.12.3.min.js}">
+</script>
+<style type="text/css">
+#dv{
+	width:100%;
+	overflow: auto;
+	display: inline;
+}
+	ul{
+		width:100%;
+		display: block;
+		overflow: auto;
+	}
+	li{
+		width:20%;
+		float: left;
+		list-style: none;
+	}
+</style>
+</head>
+<body>
+
+	<div id="dv">
+	<a  th:href="@{/add}">ADD</a>
+				<ul th:each="p,s:${list }">
+						<li th:text="${p.id }"></li>
+						<li th:text="${p.user_name }"></li>
+						<li th:text="${p.age }"></li>
+						<li><a th:href="@{/update(id=${p.id })}">修改</a></li>
+						<li><a href="javascript:void(0)" th:onclick="|delete_info('${p.id}')|">删除</a></li>
+				</ul>
+	</div>
+</body>
+
+<script type="text/javascript" th:inline="javascript">
+$(function(){
+	
+	var paths = [[@{/}]];
+	 
+	delete_info = function(id){
+		$.ajax(
+			{
+				url:paths+"delete",
+				data:"id="+id,
+				dataType:"json",
+				success:function(data){
+					if(data.data){
+						location.href = location.href;
+					}else {
+						alert("error");
+					}
+				}}
+		);
+	}
+	
+});
+</script>
+</html>

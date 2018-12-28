@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="@{/jquery-1.12.3.min.js}">
+</script>
+</head>
+<body>
+	<div id="dv">
+		<form th:action="@{/update}" method="post">
+				<input type="hidden" name="id" th:value="${user==null?id:user.id}" /><br/>
+				name:<input name="user_name" th:value="${user==null?user_name:user.user_name}"  /><br/>
+				age:<input name="age" th:value="${user==null?age:user.age}" /><br/>
+				<input type="submit" value="submit">
+		</form>
+	</div>
+</body>
+
+
+</html>
