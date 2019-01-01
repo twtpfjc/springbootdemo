@@ -24,6 +24,7 @@ public class UserController {
 	@GetMapping("/")
 	public String a(Model model) {
 		System.out.println(11111);
+		System.out.println(22222);
 		return "index";
 	}
 
